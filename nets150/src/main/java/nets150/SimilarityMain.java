@@ -10,19 +10,16 @@ public class SimilarityMain {
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         System.out.println("Are you interested in songs or artists? ");
         String string1 = reader.nextLine(); 
-        reader.nextLine(); 
 
         switch (string1) {
         case "songs":
             System.out.println("Do you want to learn more about an individual artist's songs similarity, or similarity between two songs? Please put 'individual' or 'two'.");
             String string2 = reader.nextLine(); 
-            reader.nextLine();
 
             switch (string2) {
                 case "individual":
                     System.out.println("Please name an artist.");
                     String string5 = reader.nextLine(); 
-                    reader.nextLine();
 
                     LyricParser lparse = new LyricParser();
                     lparse.getArtistPage(string5);  
@@ -33,7 +30,6 @@ public class SimilarityMain {
                 case "two":
                     System.out.println("Please name 2 songs and their respective artists, in this format: song_1,artist_1:song_2,artist_2");
                     String string6 = reader.nextLine(); 
-                    reader.nextLine();
 
                     LyricParser lparse2 = new LyricParser();
                     lparse2.getSong(string6.split(":")[0].split(",")[0], string6.split(":")[0].split(",")[1]);
@@ -47,14 +43,12 @@ public class SimilarityMain {
 
             System.out.println("Please pick one of the following genres: k-pop");
             String string3 = reader.nextLine(); 
-            reader.nextLine();
 
             // TODO: add more genre options
             switch (string3) {
                 case "k-pop":
                     System.out.println("Please pick two artists, separated by a comma.");
                     String string4 = reader.nextLine(); 
-                    reader.nextLine();
                     String[] artists = string4.split(",");
                     
                     ArtistDistance ad = new ArtistDistance("k-pop", artists[0], artists[1]);

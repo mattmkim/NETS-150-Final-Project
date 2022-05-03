@@ -38,9 +38,9 @@ public class ArtistDistance {
     public Stack<String> nameFrontier = new Stack<String>();
 
     public ArtistDistance(String genre, String artist1, String artist2) {        
-        initialArtist = genre;
-        finalArtist = artist1;
-        genre = artist2;
+        this.initialArtist = artist1;
+        this.finalArtist = artist2;
+        this.genre = genre;
     }
 
     public void initializeSpotifyAPIClient() throws IOException {
@@ -86,7 +86,7 @@ public class ArtistDistance {
             List<String> genres = Arrays.asList(artist.getGenres());  
 
             // TODO: maybe modify later, only looking for kpop artists
-            if (!genres.contains(genre)) {
+            if (!genres.contains(this.genre)) {
                 // reprompt user or something
             } else {
                 ArrayList<String> idNodes = new ArrayList<String>();
@@ -114,7 +114,7 @@ public class ArtistDistance {
             List<String> genres = Arrays.asList(artist.getGenres());  
 
             // TODO: maybe modify later, only looking for kpop artists
-            if (!genres.contains(genre)) {
+            if (!genres.contains(this.genre)) {
                 // reprompt user or something
             } 
         } catch (IOException | SpotifyWebApiException | ParseException e) {
